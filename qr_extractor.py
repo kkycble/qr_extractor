@@ -56,7 +56,7 @@ def extract_qr_code(url, login_credentials=None, output_dir="qr_codes"):
             
             # If we couldn't find a login form, try common login paths
             if not login_url:
-                common_paths = ['/login', '/signin', '/auth/login', '/user/login']
+                common_paths = ['Login.aspx?r=s', '/login', '/signin', '/auth/login', '/user/login']
                 for path in common_paths:
                     test_url = url + path
                     try:
@@ -117,7 +117,7 @@ def extract_qr_code(url, login_credentials=None, output_dir="qr_codes"):
     saved_paths = []
     
     # Try several potential paths where QR codes might be located
-    potential_paths = ['', '/attendance', '/qr', '/qrcode', '/scan', '/checkin']
+    potential_paths = ['TakeAttendanceStd.aspx', '/attendance', '/qr', '/qrcode', '/scan', '/checkin']
     
     for path in potential_paths:
         try:
