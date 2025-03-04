@@ -34,13 +34,13 @@ This application automatically extracts QR codes from your school's website (qeh
    ```
 
 4. **Access the web interface**:
-   Open your browser and navigate to `http://localhost:8080`
+   Open your browser and navigate to `http://localhost:3456`
 
 ### Reverse Proxy Setup
 
 To use this application behind a reverse proxy (such as Nginx or Traefik):
 
-1. Configure your reverse proxy to forward requests to `http://localhost:8080`
+1. Configure your reverse proxy to forward requests to `http://localhost:3456`
 
 2. Example Nginx configuration:
    ```nginx
@@ -49,7 +49,7 @@ To use this application behind a reverse proxy (such as Nginx or Traefik):
        server_name qr.yourdomain.com;
 
        location / {
-           proxy_pass http://localhost:8080;
+           proxy_pass http://localhost:3456;
            proxy_set_header Host $host;
            proxy_set_header X-Real-IP $remote_addr;
            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
