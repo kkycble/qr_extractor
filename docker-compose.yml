@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  qr-extractor:
+    build: .
+    container_name: qr-extractor
+    restart: always
+    ports:
+      - "8080:8080"
+    environment:
+      - SCHOOL_URL=https://qehsn.ha.org.hk
+      - USERNAME=${QR_USERNAME}
+      - PASSWORD=${QR_PASSWORD}
+      - INTERVAL_MINUTES=30
+    volumes:
+      - ./qr_codes:/app/qr_codes
+      - ./logs:/app/logs
